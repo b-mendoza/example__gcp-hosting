@@ -5,15 +5,15 @@ steps:
 
 # Lint
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['lint']
+    args: ['run', 'lint']
 
 # Test
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['test']
+    args: ['run', 'test']
 
 # Build
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['build']
+    args: ['run', 'build']
 
 # Set GCP Project - Actualizar a env variable para quitar projectId del yaml
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -21,8 +21,8 @@ steps:
 
 # Hosting - Actualizar a env variable para quitar bucket name del yaml
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ["rm", "gs://example-hosting-paybotic/**"]
+    args: ['rm', 'gs://example-hosting-paybotic/**']
 
 # Bucket Sync - Actualizar a env variable para quitar bucket name del yaml
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ["cp", "-r", "dist/*", "gs://example-hosting-paybotic"]
+    args: ['cp', '-r', 'dist/*', 'gs://example-hosting-paybotic']
