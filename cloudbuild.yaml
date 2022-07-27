@@ -24,8 +24,8 @@ steps:
     args: ["gcloud", 'config', 'set', 'project', 'paybotic-example-setup']
 
 # Hosting - Actualizar a env variable para quitar bucket name del yaml
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
-    args: ["gcloud", "alpha", "storage", "rm", "--recursive", "gs://example-paybotic-storage/**"]
+# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
+#   args: ["gcloud", "alpha", "storage", "rm", "--recursive", "gs://example-paybotic-storage/**"]
 
 # Bucket Sync - Actualizar a env variable para quitar bucket name del yaml
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
