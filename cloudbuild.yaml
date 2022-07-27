@@ -2,7 +2,7 @@ steps:
 # Install
   - name: 'node:lts-alpine'
     entrypoint: "npm"
-    args: ['ci']
+    args: ['ci', '--no-audit', '--no-funding']
 
 # Lint
   - name: 'node:lts-alpine'
