@@ -1,18 +1,22 @@
 steps:
 # Install
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'node:lts-alpine'
+    entrypoint: "npm"
     args: ['ci']
 
 # Lint
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'node:lts-alpine'
+    entrypoint: "npm"
     args: ['run', 'lint']
 
 # Test
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'node:lts-alpine'
+    entrypoint: "npm"
     args: ['run', 'test']
 
 # Build
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'node:lts-alpine'
+    entrypoint: "npm"
     args: ['run', 'build']
 
 # Set GCP Project - Actualizar a env variable para quitar projectId del yaml
