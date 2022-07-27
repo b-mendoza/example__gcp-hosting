@@ -20,7 +20,7 @@ steps:
     args: ['run', 'build']
 
 # Set GCP Project - Actualizar a env variable para quitar projectId del yaml
-  - name: 'https://gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
     args: ["gcloud", 'config', 'set', 'project', 'paybotic-example-setup']
 
 # Hosting - Actualizar a env variable para quitar bucket name del yaml
