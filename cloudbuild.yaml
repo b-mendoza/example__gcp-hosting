@@ -19,14 +19,14 @@ steps:
     entrypoint: "npm"
     args: ['run', 'build']
 
-# Set GCP Project - Actualizar a env variable para quitar projectId del yaml
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
+# Set GCP Project - Add env. variable to hide projectId
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
     args: ["gcloud", 'config', 'set', 'project', 'paybotic-example-setup']
 
 # Hosting - Actualizar a env variable para quitar bucket name del yaml
 # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
 #   args: ["gcloud", "alpha", "storage", "rm", "--recursive", "gs://example-paybotic-storage/**"]
 
-# Bucket Sync - Actualizar a env variable para quitar bucket name del yaml
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
+# Bucket Sync - Add env. variable to hide bucket name
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
     args: ["gsutil", 'cp', '-r', 'dist/*', 'gs://example-hosting-paybotic']
