@@ -1,0 +1,28 @@
+steps:
+# Install
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['ci']
+
+# Lint
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['lint']
+
+# Test
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['test']
+
+# Build
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['build']
+
+# Set GCP Project - Actualizar a env variable para quitar projectId del yaml
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['config', 'set', 'project', 'paybotic-example-setup']
+
+# Hosting - Actualizar a env variable para quitar bucket name del yaml
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args: ["rm", "gs://example-hosting-paybotic/**"]
+
+# Bucket Sync - Actualizar a env variable para quitar bucket name del yaml
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args: ["cp", "-r", "dist/*", "gs://example-hosting-paybotic"]
