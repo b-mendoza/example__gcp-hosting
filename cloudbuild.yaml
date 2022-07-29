@@ -1,32 +1,32 @@
 steps:
-# Install
+  # Install
   - name: 'node:lts-alpine'
-    entrypoint: "npm"
+    entrypoint: 'npm'
     args: ['ci', '--no-audit', '--no-fund']
 
-# Lint
+  # Lint
   - name: 'node:lts-alpine'
-    entrypoint: "npm"
+    entrypoint: 'npm'
     args: ['run', 'lint']
 
-# Test
+  # Test
   - name: 'node:lts-alpine'
-    entrypoint: "npm"
+    entrypoint: 'npm'
     args: ['run', 'test']
 
-# Build
+  # Build
   - name: 'node:lts-alpine'
-    entrypoint: "npm"
+    entrypoint: 'npm'
     args: ['run', 'build']
 
-# Set GCP Project - Add env. variable to hide projectId
+  # Set GCP Project - Add env. variable to hide projectId
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
-    args: ["gcloud", 'config', 'set', 'project', 'paybotic-example-setup']
+    args: ['gcloud', 'config', 'set', 'project', 'paybotic-example-setup']
 
-# Hosting - Actualizar a env variable para quitar bucket name del yaml
-# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
-#   args: ["gcloud", "alpha", "storage", "rm", "--recursive", "gs://example-paybotic-storage/**"]
+  # Hosting - Actualizar a env variable para quitar bucket name del yaml
+  # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
+  #   args: ["gcloud", "alpha", "storage", "rm", "--recursive", "gs://example-paybotic-storage/**"]
 
-# Bucket Sync - Add env. variable to hide bucket name
+  # Bucket Sync - Add env. variable to hide bucket name
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
-    args: ["gsutil", 'cp', '-r', 'dist/*', 'gs://example-paybotic-storage']
+    args: ['gsutil', 'cp', '-r', 'dist/*', 'gs://example-paybotic-storage']
