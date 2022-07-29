@@ -29,4 +29,4 @@ steps:
 
 # Bucket Sync - Add env. variable to hide bucket name
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:alpine'
-    args: ["gsutil", 'cp', '-r', 'dist/*', 'gs://example-hosting-paybotic']
+    args: ["gsutil", 'cp', '-r', 'dist/*', 'gs://example-paybotic-storage']
