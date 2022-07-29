@@ -2,29 +2,29 @@
   "name": "vite-react-ts",
   "version": "0.0.0",
   "description": "React Typescript Starter Template with Vite",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uchihamalolan/vite-react-ts.git"
-  },
   "keywords": [
     "vite",
     "react",
     "starter",
     "template"
   ],
-  "author": "Malolan B. <uchihamalolan@gmail.com> (https://twitter.com/malolan12)",
+  "homepage": "example-paybotic-storage",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uchihamalolan/vite-react-ts.git"
+  },
   "license": "MIT",
-  "homepage": "https://github.com/uchihamalolan/vite-react-ts",
+  "author": "Malolan B. <uchihamalolan@gmail.com> (https://twitter.com/malolan12)",
   "scripts": {
-    "dev": "vite",
+    "analyze": "source-map-explorer 'dist/assets/*.js'",
     "build": "tsc && vite build",
-    "test": "jest",
-    "serve": "vite preview",
-    "prepare": "husky install",
     "commit": "commit",
+    "dev": "vite",
     "format": "prettier --write --ignore-unknown .",
     "lint": "eslint --cache ./src",
-    "analyze": "source-map-explorer 'dist/assets/*.js'"
+    "prepare": "husky install",
+    "serve": "vite preview",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^18.2.0",
